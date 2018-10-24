@@ -1,0 +1,331 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.examination_of_reflexes.v0
+
+concept
+	[at0000]	-- Examination of reflexes
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Priscila Maranhao; Ana Margarida Pereira">
+		["email"] = <"priscilamaranhao@gmail.com; ambrpereira@gmail.com">
+		["organisation"] = <"MEDCIDS/FMUP; CUF">
+		["date"] = <"2018-10-12">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Assessment of reflexes. ">
+			use = <"To be use to assess the reflexes in newborns and children. ">
+			keywords = <"reflexes", "newborn", "">
+			misuse = <"Not be use to adults. ">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <"Ricardo Correia, FMUP, Portugal", "Gustavo Bacelar, FMUP, Portugal", "Pedro Vieira-Marques, FMUP, Portugal", "Duarte N. Gonçalves-Ferreira, FMUP, Portugal">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"6B8BA72703133B96E62498285B0CC57C">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Examination of reflexes
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0001] occurrences matches {0..1} matches {	-- Moro reflex
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- No abnormality detected
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Clinical description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0027] occurrences matches {0..1} matches {	-- Clinical interpretation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0006] occurrences matches {0..1} matches {	-- Root reflex
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- No abnormality detected
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Clinical description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0028] occurrences matches {0..1} matches {	-- Clinical interpretation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Comment 
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0011] occurrences matches {0..1} matches {	-- Suck reflex
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- No abnormality detected
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- Clinical description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0029] occurrences matches {0..1} matches {	-- Clinical interpretation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0015] occurrences matches {0..1} matches {	-- Tonic neck reflex
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0016] occurrences matches {0..1} matches {	-- No abnormality detected
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {	-- Clinical description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0030] occurrences matches {0..1} matches {	-- Clinical interpretation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0019] occurrences matches {0..1} matches {	-- Grap reflex
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0020] occurrences matches {0..1} matches {	-- No abnormality detected
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..1} matches {	-- Clinical description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0031] occurrences matches {0..1} matches {	-- Clinical interpretation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0022] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0023] occurrences matches {0..1} matches {	-- Step reflex
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0024] occurrences matches {0..1} matches {	-- No abnormality detected
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..1} matches {	-- Clinical description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0032] occurrences matches {0..1} matches {	-- Clinical interpretation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0026] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0004] occurrences matches {0..*} matches {	-- Cluster
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.exclusion_exam(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Examination of reflexes">
+					description = <"Findings observerd during examination of the newborn reflexes.">
+				>
+				["at0001"] = <
+					text = <"Moro reflex">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"No abnormality detected">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Clinical description">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Cluster">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Root reflex">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"No abnormality detected">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Clinical description">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Comment ">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Suck reflex">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"No abnormality detected">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Clinical description">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Tonic neck reflex">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"No abnormality detected">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Clinical description">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Grap reflex">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"No abnormality detected">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Clinical description">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Step reflex">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"No abnormality detected">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Clinical description">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Clinical interpretation">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Clinical interpretation">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Clinical interpretation">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Clinical interpretation">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Clinical interpretation">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Clinical interpretation">
+					description = <"*">
+				>
+			>
+		>
+	>

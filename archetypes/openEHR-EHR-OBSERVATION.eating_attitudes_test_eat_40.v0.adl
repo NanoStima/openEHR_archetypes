@@ -1,0 +1,2189 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.eating_attitudes_test_eat_40.v0
+
+concept
+	[at0000]	-- Eating attitudes test  - EAT-40
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Priscila Maranhao; Gustavo Bacelar">
+		["email"] = <"priscilamaranhao@gmail.com; gbacelar@gmail.com">
+		["organisation"] = <"MEDCIDS/FMUP; VirtualCare">
+		["date"] = <"2017-11-09">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"The purpose of eating attitudes test (EAT-40) is to identify  risk behavior for eating  disorders. ">
+			use = <"To be used in children, adolescents and adults;
+
+To be used to identify risk behavior  for eating disorders (e.g. anorexia, bulimia, etc.);
+
+To be used in the self-fill form;
+
+To be used  to english language population. This questionnaire was validated in Canada population;
+
+To be used to Asian population. The screening has a good validity. 
+
+">
+			keywords = <"EAT-40", "Eating disorders", "Eating attitudes", "Anorexia", "Bulimia">
+			misuse = <"Not to be used to eating disorders diagnosis. 
+">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <"Ricardo Cruz-Correia, MEDCIDS- FMUP; Portugal", "Pedro Vieira-Marques, MEDICIDS-FMUP, Portugal", "Duarte Gonçalves, MEDICIDS -FMUP, Portugal", "Marle Alvarenga, USP, Brasil">
+	other_details = <
+		["references"] = <"www-eat-26.com/eat-40/
+
+Garner, DM & Garfinkel, PE. The eating attitudes test: an index  of the symptoms of anorexia nervosa; Psychological Medicine, 1979, 9, 273-79. 
+
+
+
+
+">
+		["MD5-CAM-1.0.1"] = <"E8CD50BC55AFD5AF0A6F43651C79FEF7">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Eating attitudes test  - EAT-40
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0004] occurrences matches {0..1} matches {	-- Part A - Complete the following questions:
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0005] occurrences matches {0..1} matches {	-- Birth date
+												value matches {
+													DV_DATE matches {*}
+												}
+											}
+											ELEMENT[at0007] occurrences matches {0..1} matches {	-- Gender
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0008, 	-- Male
+															at0009]	-- Female
+														}
+													}
+												}
+											}
+											ELEMENT[at0006] occurrences matches {0..1} matches {	-- Height
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::122]>
+														list = <
+															["1"] = <
+																units = <"cm">
+															>
+															["2"] = <
+																units = <"m">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {	-- Current weight
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::124]>
+														list = <
+															["1"] = <
+																units = <"kg">
+															>
+															["2"] = <
+																units = <"lb">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0011] occurrences matches {0..1} matches {	-- Highest weight
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::124]>
+														list = <
+															["1"] = <
+																units = <"kg">
+															>
+															["2"] = <
+																units = <"lb">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0012] occurrences matches {0..1} matches {	-- Lowest adult weight
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::124]>
+														list = <
+															["1"] = <
+																units = <"kg">
+															>
+															["2"] = <
+																units = <"lb">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0013] occurrences matches {0..1} matches {	-- Ideal weight
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::124]>
+														list = <
+															["1"] = <
+																units = <"kg">
+															>
+															["2"] = <
+																units = <"lb">
+															>
+														>
+													>
+												}
+											}
+										}
+									}
+									CLUSTER[at0014] occurrences matches {0..1} matches {	-- Part B - Check a response for each of the following statements:
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0015] occurrences matches {0..1} matches {	-- 1.Like eating with other people. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0016, 	-- Always
+															at0018, 	-- Usually
+															at0019, 	-- Often
+															at0020, 	-- Sometimes
+															at0021, 	-- Rarely
+															at0022]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0017] occurrences matches {0..1} matches {	-- 2. Prepare foods for others but nit eat what I cook. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0023, 	-- Always
+															at0024, 	-- Usually
+															at0025, 	-- Often
+															at0026, 	-- Sometimes
+															at0027, 	-- Rarely
+															at0028]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0029] occurrences matches {0..1} matches {	-- 3. Become anxious prior to eating
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0030, 	-- Always
+															at0031, 	-- Usually
+															at0032, 	-- Often
+															at0033, 	-- Sometimes
+															at0034, 	-- Rarely
+															at0035]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0036] occurrences matches {0..1} matches {	-- 4. Am terrified about being overweight. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0037, 	-- Always
+															at0038, 	-- Usually
+															at0039, 	-- Often
+															at0040, 	-- Sometimes
+															at0041, 	-- Rarely
+															at0042]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0043] occurrences matches {0..1} matches {	-- 5. Avoid eating when I am hungry. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0044, 	-- Always
+															at0045, 	-- Usually
+															at0046, 	-- Often
+															at0047, 	-- Sometimes
+															at0048, 	-- Rarely
+															at0049]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0051] occurrences matches {0..1} matches {	-- 6. Find myself preoccupied with food. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0052, 	-- Always
+															at0053, 	-- Usually
+															at0054, 	-- Often
+															at0055, 	-- Sometimes
+															at0056, 	-- Rarely
+															at0057]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0058] occurrences matches {0..1} matches {	-- 7. Have gone on eating binges where I feel that I may not be able to stop. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0059, 	-- Always
+															at0060, 	-- Usually
+															at0061, 	-- Often
+															at0062, 	-- Sometimes
+															at0063, 	-- Rarely
+															at0064]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0065] occurrences matches {0..1} matches {	-- 8. Cut my food into small pieces. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0066, 	-- Always
+															at0067, 	-- Usually
+															at0068, 	-- Often
+															at0069, 	-- Sometimes
+															at0070, 	-- Rarely
+															at0071]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0072] occurrences matches {0..1} matches {	-- 9. Aware of the calorie content of foods that I eat. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0073, 	-- Always
+															at0074, 	-- Usually
+															at0075, 	-- Often
+															at0076, 	-- Sometimes
+															at0077, 	-- Rarely
+															at0078]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0079] occurrences matches {0..1} matches {	-- 10. Particularly avoid food with a high carbohydrate content (i.e bread, rice, potatoes, etc.)
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0314, 	-- Always
+															at0315, 	-- Usually
+															at0316, 	-- Often
+															at0317, 	-- Sometimes
+															at0318, 	-- Rarely
+															at0319]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0080] occurrences matches {0..1} matches {	-- 11. Feel boated after meals. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0081, 	-- Always
+															at0082, 	-- Usually
+															at0083, 	-- Often
+															at0084, 	-- Sometimes
+															at0085, 	-- Rarely
+															at0086]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0087] occurrences matches {0..1} matches {	-- 12. Feel that others would prefer if I ate more. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0088, 	-- Always
+															at0089, 	-- Usually
+															at0090, 	-- Often
+															at0091, 	-- Sometimes
+															at0092, 	-- Rarely
+															at0093]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0094] occurrences matches {0..1} matches {	-- 13. Vomit after I have eaten. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0095, 	-- Always
+															at0096, 	-- Usually
+															at0097, 	-- Often
+															at0098, 	-- Sometimes
+															at0099, 	-- Rarely
+															at0100]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0101] occurrences matches {0..1} matches {	-- 14.Feel extremely guilty after eating. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0102, 	-- Always
+															at0103, 	-- Usually
+															at0104, 	-- Often
+															at0105, 	-- Sometimes
+															at0106, 	-- Rarely
+															at0107]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0108] occurrences matches {0..1} matches {	-- 15. Am preoccupied with a desire to be thinner. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0109, 	-- Always
+															at0110, 	-- Usually
+															at0111, 	-- Often
+															at0112, 	-- Sometimes
+															at0113, 	-- Rarely
+															at0114]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0115] occurrences matches {0..1} matches {	-- 16. Exercise strenuously to burn off calories. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0116, 	-- Always
+															at0117, 	-- Usually
+															at0118, 	-- Often
+															at0119, 	-- Sometimes
+															at0120, 	-- Rarely
+															at0121]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0122] occurrences matches {0..1} matches {	-- 17. Weight myself several times.
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0123, 	-- Always
+															at0124, 	-- Usually
+															at0125, 	-- Often
+															at0126, 	-- Sometimes
+															at0127, 	-- Rarely
+															at0128]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0129] occurrences matches {0..1} matches {	-- 18.Like my clothes to fit tightly. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0130, 	-- Always
+															at0131, 	-- Usually
+															at0132, 	-- Often
+															at0133, 	-- Sometimes
+															at0134, 	-- Rarely
+															at0135]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0136] occurrences matches {0..1} matches {	-- 19. Enjoy eating meat. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0137, 	-- Always
+															at0138, 	-- Usually
+															at0139, 	-- Often
+															at0140, 	-- Sometimes
+															at0141, 	-- Rarely
+															at0142]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0143] occurrences matches {0..1} matches {	-- 20. Wake up early in the morning. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0144, 	-- Always
+															at0145, 	-- Usually
+															at0146, 	-- Often
+															at0147, 	-- Sometimes
+															at0148, 	-- Rarely
+															at0149]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0150] occurrences matches {0..1} matches {	-- 21. Eat the same foods day after day. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0151, 	-- Always
+															at0152, 	-- Usually
+															at0153, 	-- Often
+															at0154, 	-- Sometimes
+															at0155, 	-- Rarely
+															at0156]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0157] occurrences matches {0..1} matches {	-- 22. Think about burning up calories when I exercise. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0158, 	-- Always
+															at0159, 	-- Usually
+															at0160, 	-- Often
+															at0161, 	-- Sometimes
+															at0162, 	-- Rarely
+															at0163]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0164] occurrences matches {0..1} matches {	-- 23. Have regular menstual periods. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0165, 	-- Always
+															at0166, 	-- Usually
+															at0167, 	-- Often
+															at0168, 	-- Sometimes
+															at0169, 	-- Rarely
+															at0170]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0171] occurrences matches {0..1} matches {	-- 24. Other people think that I am too thin. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0172, 	-- Always
+															at0173, 	-- Usually
+															at0174, 	-- Often
+															at0175, 	-- Sometimes
+															at0176, 	-- Rarely
+															at0177]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0178] occurrences matches {0..1} matches {	-- 25. Am preoccupied with the thought of having fat on my body. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0179, 	-- Always
+															at0180, 	-- Usually
+															at0181, 	-- Often
+															at0182, 	-- Sometimes
+															at0183, 	-- Rarely
+															at0184]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0185] occurrences matches {0..1} matches {	-- 26. Take longer than others to eat my meals. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0186, 	-- Always
+															at0187, 	-- Usually
+															at0188, 	-- Often
+															at0189, 	-- Sometimes
+															at0190, 	-- Rarely
+															at0191]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0192] occurrences matches {0..1} matches {	-- 27. Enjoy eating at restaurants. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0193, 	-- Always
+															at0194, 	-- Usually
+															at0195, 	-- Often
+															at0196, 	-- Sometimes
+															at0197, 	-- Rarely
+															at0198]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0199] occurrences matches {0..1} matches {	-- 28.Take laxatives
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0200, 	-- Always
+															at0201, 	-- Usually
+															at0202, 	-- Often
+															at0203, 	-- Sometimes
+															at0204, 	-- Rarely
+															at0205]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0206] occurrences matches {0..1} matches {	-- 29. Avoid foods with sugar in them. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0207, 	-- Always
+															at0208, 	-- Usually
+															at0209, 	-- Often
+															at0210, 	-- Sometimes
+															at0211, 	-- Rarely
+															at0212]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0213] occurrences matches {0..1} matches {	-- 30. Eat diet foods. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0214, 	-- Always
+															at0215, 	-- Usually
+															at0216, 	-- Often
+															at0217, 	-- Sometimes
+															at0218, 	-- Rarely
+															at0219]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0220] occurrences matches {0..1} matches {	-- 31. Feel that food controls my life. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0221, 	-- Always
+															at0222, 	-- Usually
+															at0223, 	-- Often
+															at0224, 	-- Sometimes
+															at0225, 	-- Rarely
+															at0226]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0227] occurrences matches {0..1} matches {	-- 32. Display self-control around food. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0320, 	-- Always
+															at0321, 	-- Usually
+															at0322, 	-- Often
+															at0323, 	-- Sometimes
+															at0324, 	-- Rarely
+															at0325]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0228] occurrences matches {0..1} matches {	-- 33. Feel that others pressure me to eat. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0229, 	-- Always
+															at0230, 	-- Usually
+															at0231, 	-- Often
+															at0232, 	-- Sometimes
+															at0233, 	-- Rarely
+															at0234]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0235] occurrences matches {0..1} matches {	-- 34. Give too much time and thought to food.
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0236, 	-- Always
+															at0237, 	-- Usually
+															at0238, 	-- Often
+															at0239, 	-- Sometimes
+															at0240, 	-- Rarely
+															at0241]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0242] occurrences matches {0..1} matches {	-- 35. Suffer from constipation. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0243, 	-- Always
+															at0244, 	-- Usually
+															at0245, 	-- Often
+															at0246, 	-- Sometimes
+															at0247, 	-- Rarely
+															at0248]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0249] occurrences matches {0..1} matches {	-- 36. Feel uncomfortable after eating sweets, 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0250, 	-- Always
+															at0251, 	-- Usually
+															at0252, 	-- Often
+															at0253, 	-- Sometimes
+															at0254, 	-- Rarely
+															at0255]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0256] occurrences matches {0..1} matches {	-- 37. Engage in dieting behavior.
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0257, 	-- Always
+															at0258, 	-- Usually
+															at0259, 	-- Often
+															at0260, 	-- Sometimes
+															at0261, 	-- Rarely
+															at0262]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0263] occurrences matches {0..1} matches {	-- 38. Like my stomach to be empty. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0264, 	-- Always
+															at0265, 	-- Usually
+															at0266, 	-- Often
+															at0267, 	-- Sometimes
+															at0268, 	-- Rarely
+															at0269]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0270] occurrences matches {0..1} matches {	-- 39. Enjoy trying new rich foods. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0326, 	-- Always
+															at0327, 	-- Usually
+															at0328, 	-- Often
+															at0329, 	-- Sometimes
+															at0330, 	-- Rarely
+															at0331]	-- Never
+														}
+													}
+												}
+											}
+											ELEMENT[at0271] occurrences matches {0..1} matches {	-- 40. Have the impulse to vomit after meals. 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0272, 	-- Always
+															at0273, 	-- Usually
+															at0274, 	-- Often
+															at0275, 	-- Sometimes
+															at0276, 	-- Rarely
+															at0277]	-- Never
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0278] occurrences matches {0..1} matches {	-- Part C - Behavioral Questions: In the past 6 months have you: 
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0279] occurrences matches {0..1} matches {	-- A. Gone on eating binges where you feel that you may not be able to stop?*
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0280, 	-- Never
+															at0281, 	-- Once a month or less
+															at0282, 	-- 2-3 times a month
+															at0283, 	-- Once a week
+															at0284, 	-- 2-6 times a week
+															at0285]	-- Once a day or more
+														}
+													}
+												}
+											}
+											ELEMENT[at0286] occurrences matches {0..1} matches {	-- B. Ever made yourself sick (vomited) to control your weight or shape?
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0287, 	-- Never
+															at0288, 	-- Once a month or less
+															at0289, 	-- 2-3 times a month
+															at0290, 	-- Once a week
+															at0291, 	-- 2-6 times a week
+															at0292]	-- Once a day or more
+														}
+													}
+												}
+											}
+											ELEMENT[at0293] occurrences matches {0..1} matches {	-- C. Ever used laxatives, diet pills or diuretics (water pills) to control your weight or shape?
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0294, 	-- Never
+															at0295, 	-- Once a month or less
+															at0296, 	-- 2-3 times a month
+															at0297, 	-- Once a week
+															at0298, 	-- 2-6 times a week
+															at0299]	-- Once a day or more
+														}
+													}
+												}
+											}
+											ELEMENT[at0300] occurrences matches {0..1} matches {	-- D. Exercised more than 60 minutes a day to lose or to control your weight?
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0301, 	-- Never
+															at0302, 	-- Once a month or less
+															at0303, 	-- 2-3 times a month
+															at0304, 	-- Once a week
+															at0305, 	-- 2-6 times a week
+															at0306]	-- Once a day or more
+														}
+													}
+												}
+											}
+											ELEMENT[at0307] occurrences matches {0..1} matches {	-- E. Lost 20 pounds or more in the 6 months
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0308, 	-- Yes
+															at0309]	-- No
+														}
+													}
+												}
+											}
+											ELEMENT[at0310] occurrences matches {0..1} matches {	-- F. Have you ever been treated for an eating disorder?
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0311, 	-- Yes
+															at0312]	-- No
+														}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0313] occurrences matches {0..1} matches {	-- Total test score
+										value matches {
+											C_DV_QUANTITY <
+											>
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Eating attitudes test  - EAT-40">
+					description = <"Screening to eating behaviors disorders. ">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Default, unspecified point in time or intervel event which may be explicity defined in a template or at run-time. ">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Part A - Complete the following questions:">
+					description = <"This is a screening measure to help you to determine whetger you might have an eating disorder that needs professional attention. This screening measure is not designed to make a diagnosis of an eating disorder or take the place of a professional consultation. Please fill out the form as accurately, honestly and completely as possible. There are no right or wrong answear. ">
+				>
+				["at0005"] = <
+					text = <"Birth date">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Height">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Gender">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Male">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Female">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Current weight">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Highest weight">
+					description = <"Excluding pregnancy.">
+				>
+				["at0012"] = <
+					text = <"Lowest adult weight">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Ideal weight">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Part B - Check a response for each of the following statements:">
+					description = <"Check a response for each of the following statements:">
+				>
+				["at0015"] = <
+					text = <"1.Like eating with other people. ">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"2. Prepare foods for others but nit eat what I cook. ">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"3. Become anxious prior to eating">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"4. Am terrified about being overweight. ">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"5. Avoid eating when I am hungry. ">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"6. Find myself preoccupied with food. ">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0058"] = <
+					text = <"7. Have gone on eating binges where I feel that I may not be able to stop. ">
+					description = <"*">
+				>
+				["at0059"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0061"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0062"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0063"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0065"] = <
+					text = <"8. Cut my food into small pieces. ">
+					description = <"*">
+				>
+				["at0066"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0067"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0068"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0069"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0070"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0071"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0072"] = <
+					text = <"9. Aware of the calorie content of foods that I eat. ">
+					description = <"*">
+				>
+				["at0073"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0074"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0075"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0076"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0077"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0078"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0079"] = <
+					text = <"10. Particularly avoid food with a high carbohydrate content (i.e bread, rice, potatoes, etc.)">
+					description = <"*">
+				>
+				["at0080"] = <
+					text = <"11. Feel boated after meals. ">
+					description = <"*">
+				>
+				["at0081"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0082"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0083"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0084"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0085"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0086"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0087"] = <
+					text = <"12. Feel that others would prefer if I ate more. ">
+					description = <"*">
+				>
+				["at0088"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0089"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0090"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0091"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0092"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0093"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0094"] = <
+					text = <"13. Vomit after I have eaten. ">
+					description = <"*">
+				>
+				["at0095"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0096"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0097"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0098"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0099"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0100"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0101"] = <
+					text = <"14.Feel extremely guilty after eating. ">
+					description = <"*">
+				>
+				["at0102"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0103"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0104"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0105"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0106"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0107"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0108"] = <
+					text = <"15. Am preoccupied with a desire to be thinner. ">
+					description = <"*">
+				>
+				["at0109"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0110"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0111"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0112"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0113"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0114"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0115"] = <
+					text = <"16. Exercise strenuously to burn off calories. ">
+					description = <"*">
+				>
+				["at0116"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0117"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0118"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0119"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0120"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0121"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0122"] = <
+					text = <"17. Weight myself several times.">
+					description = <"*">
+				>
+				["at0123"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0124"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0125"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0126"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0127"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0128"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0129"] = <
+					text = <"18.Like my clothes to fit tightly. ">
+					description = <"*">
+				>
+				["at0130"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0131"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0132"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0133"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0134"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0135"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0136"] = <
+					text = <"19. Enjoy eating meat. ">
+					description = <"*">
+				>
+				["at0137"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0138"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0139"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0140"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0141"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0142"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0143"] = <
+					text = <"20. Wake up early in the morning. ">
+					description = <"*">
+				>
+				["at0144"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0145"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0146"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0147"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0148"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0149"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0150"] = <
+					text = <"21. Eat the same foods day after day. ">
+					description = <"*">
+				>
+				["at0151"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0152"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0153"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0154"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0155"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0156"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0157"] = <
+					text = <"22. Think about burning up calories when I exercise. ">
+					description = <"*">
+				>
+				["at0158"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0159"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0160"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0161"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0162"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0163"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0164"] = <
+					text = <"23. Have regular menstual periods. ">
+					description = <"*">
+				>
+				["at0165"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0166"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0167"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0168"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0169"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0170"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0171"] = <
+					text = <"24. Other people think that I am too thin. ">
+					description = <"*">
+				>
+				["at0172"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0173"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0174"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0175"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0176"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0177"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0178"] = <
+					text = <"25. Am preoccupied with the thought of having fat on my body. ">
+					description = <"*">
+				>
+				["at0179"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0180"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0181"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0182"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0183"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0184"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0185"] = <
+					text = <"26. Take longer than others to eat my meals. ">
+					description = <"*">
+				>
+				["at0186"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0187"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0188"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0189"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0190"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0191"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0192"] = <
+					text = <"27. Enjoy eating at restaurants. ">
+					description = <"*">
+				>
+				["at0193"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0194"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0195"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0196"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0197"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0198"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0199"] = <
+					text = <"28.Take laxatives">
+					description = <"*">
+				>
+				["at0200"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0201"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0202"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0203"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0204"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0205"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0206"] = <
+					text = <"29. Avoid foods with sugar in them. ">
+					description = <"*">
+				>
+				["at0207"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0208"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0209"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0210"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0211"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0212"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0213"] = <
+					text = <"30. Eat diet foods. ">
+					description = <"*">
+				>
+				["at0214"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0215"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0216"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0217"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0218"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0219"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0220"] = <
+					text = <"31. Feel that food controls my life. ">
+					description = <"*">
+				>
+				["at0221"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0222"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0223"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0224"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0225"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0226"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0227"] = <
+					text = <"32. Display self-control around food. ">
+					description = <"*">
+				>
+				["at0228"] = <
+					text = <"33. Feel that others pressure me to eat. ">
+					description = <"*">
+				>
+				["at0229"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0230"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0231"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0232"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0233"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0234"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0235"] = <
+					text = <"34. Give too much time and thought to food.">
+					description = <"*">
+				>
+				["at0236"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0237"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0238"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0239"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0240"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0241"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0242"] = <
+					text = <"35. Suffer from constipation. ">
+					description = <"*">
+				>
+				["at0243"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0244"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0245"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0246"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0247"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0248"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0249"] = <
+					text = <"36. Feel uncomfortable after eating sweets, ">
+					description = <"*">
+				>
+				["at0250"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0251"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0252"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0253"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0254"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0255"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0256"] = <
+					text = <"37. Engage in dieting behavior.">
+					description = <"*">
+				>
+				["at0257"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0258"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0259"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0260"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0261"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0262"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0263"] = <
+					text = <"38. Like my stomach to be empty. ">
+					description = <"*">
+				>
+				["at0264"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0265"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0266"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0267"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0268"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0269"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0270"] = <
+					text = <"39. Enjoy trying new rich foods. ">
+					description = <"*">
+				>
+				["at0271"] = <
+					text = <"40. Have the impulse to vomit after meals. ">
+					description = <"*">
+				>
+				["at0272"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0273"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0274"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0275"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0276"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0277"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0278"] = <
+					text = <"Part C - Behavioral Questions: In the past 6 months have you: ">
+					description = <"*">
+				>
+				["at0279"] = <
+					text = <"A. Gone on eating binges where you feel that you may not be able to stop?*">
+					description = <"Defined as eating much more than most people would under the same circumstances and feeling that eating is out of control. ">
+				>
+				["at0280"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0281"] = <
+					text = <"Once a month or less">
+					description = <"*">
+				>
+				["at0282"] = <
+					text = <"2-3 times a month">
+					description = <"*">
+				>
+				["at0283"] = <
+					text = <"Once a week">
+					description = <"*">
+				>
+				["at0284"] = <
+					text = <"2-6 times a week">
+					description = <"*">
+				>
+				["at0285"] = <
+					text = <"Once a day or more">
+					description = <"*">
+				>
+				["at0286"] = <
+					text = <"B. Ever made yourself sick (vomited) to control your weight or shape?">
+					description = <"*">
+				>
+				["at0287"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0288"] = <
+					text = <"Once a month or less">
+					description = <"*">
+				>
+				["at0289"] = <
+					text = <"2-3 times a month">
+					description = <"*">
+				>
+				["at0290"] = <
+					text = <"Once a week">
+					description = <"*">
+				>
+				["at0291"] = <
+					text = <"2-6 times a week">
+					description = <"*">
+				>
+				["at0292"] = <
+					text = <"Once a day or more">
+					description = <"*">
+				>
+				["at0293"] = <
+					text = <"C. Ever used laxatives, diet pills or diuretics (water pills) to control your weight or shape?">
+					description = <"*">
+				>
+				["at0294"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0295"] = <
+					text = <"Once a month or less">
+					description = <"*">
+				>
+				["at0296"] = <
+					text = <"2-3 times a month">
+					description = <"*">
+				>
+				["at0297"] = <
+					text = <"Once a week">
+					description = <"*">
+				>
+				["at0298"] = <
+					text = <"2-6 times a week">
+					description = <"*">
+				>
+				["at0299"] = <
+					text = <"Once a day or more">
+					description = <"*">
+				>
+				["at0300"] = <
+					text = <"D. Exercised more than 60 minutes a day to lose or to control your weight?">
+					description = <"*">
+				>
+				["at0301"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0302"] = <
+					text = <"Once a month or less">
+					description = <"*">
+				>
+				["at0303"] = <
+					text = <"2-3 times a month">
+					description = <"*">
+				>
+				["at0304"] = <
+					text = <"Once a week">
+					description = <"*">
+				>
+				["at0305"] = <
+					text = <"2-6 times a week">
+					description = <"*">
+				>
+				["at0306"] = <
+					text = <"Once a day or more">
+					description = <"*">
+				>
+				["at0307"] = <
+					text = <"E. Lost 20 pounds or more in the 6 months">
+					description = <"*">
+				>
+				["at0308"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0309"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0310"] = <
+					text = <"F. Have you ever been treated for an eating disorder?">
+					description = <"*">
+				>
+				["at0311"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0312"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0313"] = <
+					text = <"Total test score">
+					description = <"Scoring: In the test, each extreme response in the \"anorexic\" direction was scored as worth 3 points, while the adjacent alternatives were weighted as 2 points and 1 point respectively. ">
+				>
+				["at0314"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0315"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0316"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0317"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0318"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0319"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0320"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0321"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0322"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0323"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0324"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0325"] = <
+					text = <"Never">
+					description = <"*">
+				>
+				["at0326"] = <
+					text = <"Always">
+					description = <"*">
+				>
+				["at0327"] = <
+					text = <"Usually">
+					description = <"*">
+				>
+				["at0328"] = <
+					text = <"Often">
+					description = <"*">
+				>
+				["at0329"] = <
+					text = <"Sometimes">
+					description = <"*">
+				>
+				["at0330"] = <
+					text = <"Rarely">
+					description = <"*">
+				>
+				["at0331"] = <
+					text = <"Never">
+					description = <"*">
+				>
+			>
+		>
+	>

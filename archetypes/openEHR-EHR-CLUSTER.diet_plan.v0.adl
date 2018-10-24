@@ -21,6 +21,13 @@ description
 		["date"] = <"2017-07-10">
 	>
 	details = <
+		["pt"] = <
+			language = <[ISO_639-1::pt]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"To record information about the diet of an individual. ">
@@ -37,19 +44,12 @@ This archetype can be used in hospital, health center, etc.
 			misuse = <"">
 			copyright = <"">
 		>
-		["pt"] = <
-			language = <[ISO_639-1::pt]>
-			purpose = <"">
-			use = <"">
-			misuse = <"">
-			copyright = <"">
-		>
 	>
 	lifecycle_state = <"0">
 	other_contributors = <"Ricardo Cruz-Correia,FMUP, Portugal", "Pedro Vieira-Marques, FMUP, Portugal", "Duarte Ferreira, FMUP, Portugal">
 	other_details = <
 		["references"] = <" - Grupo de Apoio Nutricional -Equipe Multidisciplinar de Terapia Nutricional GAN/EMTN - HC - Hospital das Clínicas. Terapia Nutricional. Unicamp, 2003. Disponível em: <www.hc.unicamp.br/servicos/emtn/manual_nutricionista_2004-11-02.pdf>">
-		["MD5-CAM-1.0.1"] = <"4E8E0BF41A016458AFD2D21A4E69FE83">
+		["MD5-CAM-1.0.1"] = <"50DD492A8C464A1F61BCEABE6DB3546A">
 	>
 
 definition
@@ -105,7 +105,7 @@ definition
 					}
 				}
 			}
-			ELEMENT[at0019] occurrences matches {0..1} matches {	-- Consistency diet 
+			ELEMENT[at0019] occurrences matches {0..1} matches {	-- Consistency of the diet 
 				value matches {
 					DV_CODED_TEXT matches {
 						defining_code matches {
@@ -381,7 +381,7 @@ ontology
 					description = <"Comments ">
 				>
 				["at0019"] = <
-					text = <"Consistency diet ">
+					text = <"Consistency of the diet ">
 					description = <"Consistency diet.">
 				>
 				["at0020"] = <

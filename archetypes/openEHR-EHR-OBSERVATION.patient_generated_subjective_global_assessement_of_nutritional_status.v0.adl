@@ -1,0 +1,566 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.patient_generated_subjective_global_assessement_of_nutritional_status.v0
+
+concept
+	[at0000]	-- Patient generated subjective global assessement of nutritional status
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Priscila Maranhao; Gustavo Bacelar">
+		["email"] = <"priscilamaranhao@gmail.com; gbacelar@gmail.com">
+		["organisation"] = <"MEDCIDS/FMUP; VirtualCare">
+		["date"] = <"2018-09-06">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"PG-SGA is a screening tool for early detection of nutrition risk and malnutrition. ">
+			use = <"To be used in oncologic patients;
+
+to be used in adults and children;
+">
+			keywords = <"malnutrition", "screening", "cancer", "physical exam", "nutrition imtake">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <"Ricardo Cruz-Correia, FMUP, Portugal", "Pedro Vieira-Marques, FMUP, Portugal", "Duarte Gonçalves-Ferreira, FMUP, Portugal", "Luis Reis, FMUP, Portugal">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"46537DAA8CC107855048FB6BD0B25335">
+		["references"] = <"Faith D. Ottery. Assessment and interventional pathways in oncology. Nutrition, 12, n.1, 1996. 
+
+Nayara de Souza Gomes, Regiane Maio. Patient-generated subjective Global Assessment ans Nutritional Risk Indicators in Oncology Patients Receiving Chemotherapy. Revista Brasileira de Cancerologia, 2015; 61 (3):235-242. 
+
+Vázquez de la Torre MJ, Stein K, Vásquez Garibay EM, Kumazawa Ichikawa MR, Troyo Sanromán R, Salcedo Flores AG, Sánchez Zubieta FA. Patient-generated subjective Global Assessment of Nutritional status in pediatric patients with recent cancer diagnosis. Nutr Hospi, 2017, 24;34(5):1050-1058. 
+
+">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Patient generated subjective global assessement of nutritional status
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; ordered} matches {
+									CLUSTER[at0004] occurrences matches {0..1} matches {	-- 1. Weight
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0006] occurrences matches {0..1} matches {	-- I currently weigh about:
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::124]>
+														list = <
+															["1"] = <
+																units = <"lb">
+															>
+															["2"] = <
+																units = <"kg">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0007] occurrences matches {0..1} matches {	-- I am about:  
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::122]>
+														list = <
+															["1"] = <
+																units = <"m">
+															>
+															["2"] = <
+																units = <"ft">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0008] occurrences matches {0..1} matches {	-- A year ago I weighed about:  
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::124]>
+														list = <
+															["1"] = <
+																units = <"kg">
+															>
+															["2"] = <
+																units = <"lb">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0009] occurrences matches {0..1} matches {	-- Six months ago I weighed about: 
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::124]>
+														list = <
+															["1"] = <
+																units = <"kg">
+															>
+															["2"] = <
+																units = <"lb">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {	-- During the past two weeks my weight has:
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0011, 	-- decreased
+															at0012, 	-- not changed
+															at0013]	-- increased
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0014] occurrences matches {0..1} matches {	-- 2. Food Intake
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0015] occurrences matches {0..1} matches {	-- As compared to my normal, I would rate my food intake during the past month as either: 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0016, 	-- Unchanged
+															at0017, 	-- more than usual
+															at0018]	-- less than usual
+														}
+													}
+												}
+											}
+											ELEMENT[at0019] occurrences matches {0..1} matches {	-- I am now taking:
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0020, 	-- little solid food
+															at0021, 	-- only liquids
+															at0022, 	-- only nutritional supplements
+															at0023]	-- very little of anything
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0024] occurrences matches {0..1} matches {	-- 3. Symptoms 
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0025] occurrences matches {0..1} matches {	-- I have had the following problmes that kept me from eating enough (check all that apply):
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0026, 	-- no problems eating
+															at0027, 	-- no appetite, just did not feel like eating
+															at0028, 	-- nausea
+															at0029, 	-- vomiting
+															at0030, 	-- constipation
+															at0031, 	-- diarrhea
+															at0032, 	-- mouth sores
+															at0033, 	-- dry mouth
+															at0034, 	-- pain
+															at0035, 	-- things taste funny or have no taste
+															at0036, 	-- smells bother me 
+															at0037]	-- other
+														}
+													}
+												}
+											}
+											ELEMENT[at0038] occurrences matches {0..1} matches {	-- pain; where?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0039] occurrences matches {0..1} matches {	-- other
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0041] occurrences matches {0..1} matches {	-- Functional Capacity
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0042] occurrences matches {0..1} matches {	-- Over the past, I would rate my activity as generally: 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0043, 	-- normal with no limitations
+															at0044, 	-- not my normal self, but able to be up and about  with fairly normal activies.
+															at0045, 	-- not feeling up to most things , but in bed less than half the day. 
+															at0046, 	-- able to do little activity and spend mots of the day  in bed or chair. 
+															at0047]	-- pretty much bedridden, rarely out of bed
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0050] occurrences matches {0..1} matches {	-- 5. Disease and its relation to Nutitional Requirements 
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0051] occurrences matches {0..1} matches {	-- Primary diagnosis (specify)
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0052] occurrences matches {0..1} matches {	-- Stage, if known
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0053] occurrences matches {0..1} matches {	-- Metabolic demand (stress)
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0054, 	-- no stress
+															at0055, 	-- low stress
+															at0056, 	-- moderate stress
+															at0057]	-- high stress
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0059] occurrences matches {0..1} matches {	-- Physical
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0061] occurrences matches {0..1} matches {	-- loss of subcutaneous fat (triceps, chest)
+												value matches {
+													DV_COUNT matches {
+														magnitude matches {|0..3|}
+													}
+												}
+											}
+											ELEMENT[at0062] occurrences matches {0..1} matches {	-- muscle wasting (quadriceps, deltoids)
+												value matches {
+													DV_COUNT matches {
+														magnitude matches {|0..3|}
+													}
+												}
+											}
+											ELEMENT[at0063] occurrences matches {0..1} matches {	-- ankle edema
+												value matches {
+													DV_COUNT matches {
+														magnitude matches {|0..3|}
+													}
+												}
+											}
+											ELEMENT[at0064] occurrences matches {0..1} matches {	-- sacral edema
+												value matches {
+													DV_COUNT matches {
+														magnitude matches {|0..3|}
+													}
+												}
+											}
+											ELEMENT[at0065] occurrences matches {0..1} matches {	-- ascites
+												value matches {
+													DV_COUNT matches {
+														magnitude matches {|0..3|}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0068] occurrences matches {0..1} matches {	-- SGA rating
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0069, 	-- A = well nourished
+													at0070, 	-- B = moderately (or suspected of being) malnourished
+													at0071]	-- C = severely malnourished
+												}
+											}
+										}
+									}
+									ELEMENT[at0072] occurrences matches {0..1} matches {	-- Total PG-SGA score
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Patient generated subjective global assessement of nutritional status">
+					description = <"Screening tool for malnutrition in cancer patients ">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"1. Weight">
+					description = <"In summary of my current ans recent weight:">
+				>
+				["at0006"] = <
+					text = <"I currently weigh about:">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"I am about:  ">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"A year ago I weighed about:  ">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Six months ago I weighed about: ">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"During the past two weeks my weight has:">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"decreased">
+					description = <"decreased">
+				>
+				["at0012"] = <
+					text = <"not changed">
+					description = <"not changed">
+				>
+				["at0013"] = <
+					text = <"increased">
+					description = <"increased">
+				>
+				["at0014"] = <
+					text = <"2. Food Intake">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"As compared to my normal, I would rate my food intake during the past month as either: ">
+					description = <"">
+				>
+				["at0016"] = <
+					text = <"Unchanged">
+					description = <"Unchanged">
+				>
+				["at0017"] = <
+					text = <"more than usual">
+					description = <"more than usual">
+				>
+				["at0018"] = <
+					text = <"less than usual">
+					description = <"less than usual">
+				>
+				["at0019"] = <
+					text = <"I am now taking:">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"little solid food">
+					description = <"little solid food">
+				>
+				["at0021"] = <
+					text = <"only liquids">
+					description = <"only liquids">
+				>
+				["at0022"] = <
+					text = <"only nutritional supplements">
+					description = <"only nutritional supplements">
+				>
+				["at0023"] = <
+					text = <"very little of anything">
+					description = <"very little of anything">
+				>
+				["at0024"] = <
+					text = <"3. Symptoms ">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"I have had the following problmes that kept me from eating enough (check all that apply):">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"no problems eating">
+					description = <"no problems eating">
+				>
+				["at0027"] = <
+					text = <"no appetite, just did not feel like eating">
+					description = <"no appetite, just did not feel like eating">
+				>
+				["at0028"] = <
+					text = <"nausea">
+					description = <"nausea">
+				>
+				["at0029"] = <
+					text = <"vomiting">
+					description = <"vomiting">
+				>
+				["at0030"] = <
+					text = <"constipation">
+					description = <"constipation">
+				>
+				["at0031"] = <
+					text = <"diarrhea">
+					description = <"diarrhea">
+				>
+				["at0032"] = <
+					text = <"mouth sores">
+					description = <"mouth sores">
+				>
+				["at0033"] = <
+					text = <"dry mouth">
+					description = <"dry mouth">
+				>
+				["at0034"] = <
+					text = <"pain">
+					description = <"pain">
+				>
+				["at0035"] = <
+					text = <"things taste funny or have no taste">
+					description = <"things taste funny or have no taste">
+				>
+				["at0036"] = <
+					text = <"smells bother me ">
+					description = <"smells bother me ">
+				>
+				["at0037"] = <
+					text = <"other">
+					description = <"other">
+				>
+				["at0038"] = <
+					text = <"pain; where?">
+					description = <"If the patient marked pain, he should describe where. ">
+				>
+				["at0039"] = <
+					text = <"other">
+					description = <"if the patiente marked \"other\", he should describe it. ">
+				>
+				["at0041"] = <
+					text = <"Functional Capacity">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Over the past, I would rate my activity as generally: ">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"normal with no limitations">
+					description = <"normal with no limitations">
+				>
+				["at0044"] = <
+					text = <"not my normal self, but able to be up and about  with fairly normal activies.">
+					description = <"not my normal self, but able to be up and about  with fairly normal activies.">
+				>
+				["at0045"] = <
+					text = <"not feeling up to most things , but in bed less than half the day. ">
+					description = <"not feeling up to most things , but in bed less than half the day">
+				>
+				["at0046"] = <
+					text = <"able to do little activity and spend mots of the day  in bed or chair. ">
+					description = <"able to do little activity and spend mots of the day  in bed or chair. ">
+				>
+				["at0047"] = <
+					text = <"pretty much bedridden, rarely out of bed">
+					description = <"pretty much bedridden, rarely out of bed">
+				>
+				["at0050"] = <
+					text = <"5. Disease and its relation to Nutitional Requirements ">
+					description = <"The remainder of this form will be completed by your doctor, nurse, or therapist. thank you. ">
+				>
+				["at0051"] = <
+					text = <"Primary diagnosis (specify)">
+					description = <"">
+				>
+				["at0052"] = <
+					text = <"Stage, if known">
+					description = <"">
+				>
+				["at0053"] = <
+					text = <"Metabolic demand (stress)">
+					description = <"">
+				>
+				["at0054"] = <
+					text = <"no stress">
+					description = <"no stress">
+				>
+				["at0055"] = <
+					text = <"low stress">
+					description = <"low stress">
+				>
+				["at0056"] = <
+					text = <"moderate stress">
+					description = <"moderate stress">
+				>
+				["at0057"] = <
+					text = <"high stress">
+					description = <"high stress">
+				>
+				["at0059"] = <
+					text = <"Physical">
+					description = <"">
+				>
+				["at0061"] = <
+					text = <"loss of subcutaneous fat (triceps, chest)">
+					description = <"For each trait specify: 0= normal, 1 = mild, 2 = moderate; 3 = severe">
+				>
+				["at0062"] = <
+					text = <"muscle wasting (quadriceps, deltoids)">
+					description = <"For each trait specify: 0= normal, 1 = mild, 2 = moderate; 3 = severe">
+				>
+				["at0063"] = <
+					text = <"ankle edema">
+					description = <"For each trait specify: 0= normal, 1 = mild, 2 = moderate; 3 = severe">
+				>
+				["at0064"] = <
+					text = <"sacral edema">
+					description = <"For each trait specify: 0= normal, 1 = mild, 2 = moderate; 3 = severe">
+				>
+				["at0065"] = <
+					text = <"ascites">
+					description = <"*">
+				>
+				["at0068"] = <
+					text = <"SGA rating">
+					description = <"select one:">
+				>
+				["at0069"] = <
+					text = <"A = well nourished">
+					description = <"A = well nourished">
+				>
+				["at0070"] = <
+					text = <"B = moderately (or suspected of being) malnourished">
+					description = <"B = moderately (or suspected of being) malnourished">
+				>
+				["at0071"] = <
+					text = <"C = severely malnourished">
+					description = <"C = severely malnourished">
+				>
+				["at0072"] = <
+					text = <"Total PG-SGA score">
+					description = <"*">
+				>
+			>
+		>
+	>
